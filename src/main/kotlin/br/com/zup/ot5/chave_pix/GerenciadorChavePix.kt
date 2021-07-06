@@ -56,7 +56,7 @@ class GerenciadorChavePix(
         val idTitularSolicitante = UUID.fromString(excluiChavePixRequestValidavel.idTitular)
 
         // verifica que o dono da chave seja o solicitante da remoção (PERMISSION_DENIED)
-        if(chavePixASerExcluida.naoPertenceAoTitular(idTitularSolicitante)) throw TitularChavePixDivergenteException()
+        if(chavePixASerExcluida.naoPertenceAoTitular(idTitularSolicitante)) throw TitularChavePixDivergenteException("Uma chave pix pode ser removida somente pelo seu dono")
 
         // exclui a chave pix do sistema BCB
         sistemaPixBcbClient.excluiPix(chavePixASerExcluida.chave, DeletePixKeyRequest(
@@ -77,7 +77,7 @@ class GerenciadorChavePix(
         val solicitante = UUID.fromString(consultaChavePixRequestValidavel.idTitular)
 
         // verifica que o dono da chave seja o solicitante da remoção (PERMISSION_DENIED)
-        if(chavePixConsultada.naoPertenceAoTitular(solicitante)) throw TitularChavePixDivergenteException()
+        if(chavePixConsultada.naoPertenceAoTitular(solicitante)) throw TitularChavePixDivergenteException("Uma chave pode ser consultada somente pelo seu dono")
 
         // consultando a chave no Banco Central do Brasil
         sistemaPixBcbClient.consultaPix(chavePixConsultada.chave)

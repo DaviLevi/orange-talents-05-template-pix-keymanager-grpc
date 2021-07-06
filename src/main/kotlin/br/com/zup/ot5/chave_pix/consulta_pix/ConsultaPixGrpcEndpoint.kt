@@ -4,12 +4,10 @@ import br.com.zup.ot5.ConsultaChavePixRequest
 import br.com.zup.ot5.ConsultaChavePixResponse
 import br.com.zup.ot5.KeyManagerConsultaServiceGrpc
 import br.com.zup.ot5.TipoChave
-import br.com.zup.ot5.chave_pix.ChavePix
 import br.com.zup.ot5.chave_pix.ChavePixRepository
 import br.com.zup.ot5.chave_pix.GerenciadorChavePix
 import br.com.zup.ot5.compartilhado.interceptors.ErrorHandler
 import br.com.zup.ot5.compartilhado.model.Instituicoes
-import br.com.zup.ot5.compartilhado.model.TipoConta
 import io.grpc.stub.StreamObserver
 import javax.inject.Singleton
 
