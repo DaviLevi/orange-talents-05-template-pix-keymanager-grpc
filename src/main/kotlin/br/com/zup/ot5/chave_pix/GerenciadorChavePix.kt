@@ -1,10 +1,12 @@
 package br.com.zup.ot5.chave_pix
 
+import br.com.zup.ot5.ListaChavePixResponse
 import br.com.zup.ot5.chave_pix.consulta_pix.ConsultaChavePixExternalRequestValidavel
 import br.com.zup.ot5.chave_pix.consulta_pix.ConsultaChavePixRequestValidavel
 import br.com.zup.ot5.chave_pix.consulta_pix.DetalheChavePix
 import br.com.zup.ot5.chave_pix.cria_chave.CriaChavePixRequestValidavel
 import br.com.zup.ot5.chave_pix.exclui_chave.ExcluiChavePixRequestValidavel
+import br.com.zup.ot5.chave_pix.lista_chave.ListaChavePixRequestValidavel
 import br.com.zup.ot5.integracoes.sistema_erp_itau.SistemaERPItauClient
 import br.com.zup.ot5.integracoes.sistema_pix_bcb.CreatePixKeyRequest
 import br.com.zup.ot5.integracoes.sistema_pix_bcb.DeletePixKeyRequest
@@ -96,6 +98,13 @@ class GerenciadorChavePix(
                                                           .body() ?: throw ChavePixInexistenteException("Chave pix nao encontrada") // se nao encontrar, retorno um status grpc NOT_FOUND
                                                       DetalheChavePix(pixBcb)
                                                    }
+    }
+
+    fun listarPix(@Valid listaChavePixRequestValidavel: ListaChavePixRequestValidavel) : List<ChavePix>{
+        // consulto a lista de chaves pix pelo id do titular
+        return chavePixRepository.listarChavesPorTitular(UUID.fromString(
+            listaChavePixRequestValidavel.idTitular
+        ))
     }
 
 }

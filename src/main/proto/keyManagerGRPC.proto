@@ -19,6 +19,10 @@ service KeyManagerConsultaService {
   rpc consultaChavePix (ConsultaChavePixRequest) returns (ConsultaChavePixResponse) {}
 }
 
+service KeyManagerListaService {
+  rpc listaChavePix (ListaChavePixRequest) returns (ListaChavePixResponse) {}
+}
+
 service ExternalServicesConsultaService {
   rpc consultaChavePix (ConsultaChavePixExternalRequest) returns (ConsultaChavePixExternalResponse) {}
 }
@@ -67,6 +71,23 @@ message ConsultaChavePixResponse{
   string numero = 10;
   TipoConta tipoConta = 11;
   string criadaEm = 12;
+}
+
+message ListaChavePixRequest{
+  string idTitular = 1;
+}
+
+message ListaChavePixResponse{
+  repeated ResumoChavePix chaves = 1;
+}
+
+message ResumoChavePix{
+  string pixId = 1;
+  string idTitular = 2;
+  TipoChave tipoChave = 3;
+  string valorChave = 4;
+  TipoConta tipoConta = 5;
+  string criadaEm = 6;
 }
 
 message RegistraChavePixResponse {

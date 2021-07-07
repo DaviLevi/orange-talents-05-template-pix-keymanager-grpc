@@ -131,7 +131,7 @@ class ConsultaChavePixEndpointTest(
     @Test
     fun `Nao deve consultar uma chave pix inexistente`(){
         // cenario
-        val chavePixSalva = chavePixRepository.save(
+        chavePixRepository.save(
             ChavePix(
                 tipoChave = TipoChave.CPF,
                 chave = CPF_VALIDO,
