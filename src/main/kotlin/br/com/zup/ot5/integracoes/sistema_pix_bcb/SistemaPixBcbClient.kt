@@ -5,7 +5,7 @@ import io.micronaut.http.MediaType
 import io.micronaut.http.annotation.*
 import io.micronaut.http.client.annotation.Client
 
-@Client(value = "http://localhost:8082")
+@Client(value = "\${integracoes.sistemaPixBcb.url}")
 interface SistemaPixBcbClient {
 
     @Post(uri = "/api/v1/pix/keys", consumes = [MediaType.APPLICATION_XML], produces = [MediaType.APPLICATION_XML])

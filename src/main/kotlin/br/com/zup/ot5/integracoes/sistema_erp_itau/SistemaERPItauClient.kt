@@ -6,7 +6,7 @@ import io.micronaut.http.annotation.PathVariable
 import io.micronaut.http.annotation.QueryValue
 import io.micronaut.http.client.annotation.Client
 
-@Client(value = "http://localhost:9091")
+@Client(value = "\${integracoes.sistemaErpItau.url}")
 interface SistemaERPItauClient {
 
     @Get(uri = "/api/v1/clientes/{clienteId}/contas")
