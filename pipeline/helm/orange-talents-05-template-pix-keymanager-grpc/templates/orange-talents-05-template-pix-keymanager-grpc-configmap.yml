@@ -1,0 +1,11 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: orange-talents-05-template-pix-keymanager-rest-configmap
+data:
+  JDBC_URL: "{{ .Values.application.JDBC_URL }}"
+  DRIVER: "{{ .Values.application.DRIVER }}"
+  DB_USER: "{{ .Values.application.DB_USER }}"
+  DIALECT: "{{ .Values.application.DIALECT }}"
+  PIX_BCB_HOST: "{{ .Values.application.PIX_BCB_HOST }}"
+  ITAU_ERP_HOST: "{{ .Values.application.ITAU_ERP_HOST }}"

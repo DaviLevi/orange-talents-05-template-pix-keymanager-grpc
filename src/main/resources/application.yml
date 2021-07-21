@@ -11,16 +11,16 @@ datasources:
     url: ${JDBC_URL:`jdbc:postgresql://localhost:5432/keymanager`}
     driverClassName: ${DRIVER:org.postgresql.Driver}
     username: ${DB_USER:keymanager}
-    password: ${DB_USER:keymanager}
+    password: ${DB_PASSWORD:keymanager}
     schema-generate: CREATE_DROP
     dialect: ${DIALECT:POSTGRES}
 
 
 integracoes:
   sistemaPixBcb:
-    url: http://localhost:9091
+    url: ${PIX_BCB_URL:`http://localhost:9091`}
   sistemaErpItau:
-    url: http://localhost:8082
+    url: ${ITAU_ERP_URL:`http://localhost:8082`}
 
 
 jpa.default.properties.hibernate.hbm2ddl.auto: update
