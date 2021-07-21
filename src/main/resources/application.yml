@@ -18,9 +18,9 @@ datasources:
 
 integracoes:
   sistemaPixBcb:
-    url: ${PIX_BCB_URL:`http://localhost:9091`}
+    url: ${PIX_BCB_HOST:`http://localhost:9091`}
   sistemaErpItau:
-    url: ${ITAU_ERP_URL:`http://localhost:8082`}
+    url: ${ITAU_ERP_HOST:`http://localhost:8082`}
 
 
 jpa.default.properties.hibernate.hbm2ddl.auto: update
