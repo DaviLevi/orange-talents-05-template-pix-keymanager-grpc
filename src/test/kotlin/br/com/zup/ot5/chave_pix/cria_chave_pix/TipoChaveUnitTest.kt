@@ -23,8 +23,6 @@ class TipoChaveUnitTest {
         fun `Nao deve ser considerado valido um valor nao nulo para tipo chave aleatoria`() {
             with(TipoChave.ALEATORIA) {
                 Assertions.assertFalse(valida("algum valor"))
-                Assertions.assertFalse(valida(""))
-                Assertions.assertFalse(valida("   "))
             }
         }
     }
